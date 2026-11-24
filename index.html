@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <title>Driada Eco Resto-Bar · Меню и доставка</title>
 <meta name="description" content="Driada Eco Resto-Bar — меню и заказ с доставкой по Ташкенту. Driada — menyu va Toshkent bo'ylab yetkazib berish.">
-<meta property="og:title" content="Driada Eco Resto-Bar"><meta property="og:image" content="b_set.jpg?v=5">
+<meta property="og:title" content="Driada Eco Resto-Bar"><meta property="og:image" content="b_set.jpg?v=6">
 <link rel="icon" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -285,7 +285,7 @@ button{font-family:inherit;cursor:pointer;border:0}
   </div>
 
   <div class="free">
-    <img src="b_set.jpg?v=5" alt="">
+    <img src="b_set.jpg?v=6" alt="">
     <div class="tx"><h3><span data-ih="freeH"></span> <b id="freeFrom"></b></h3></div>
   </div>
 </main>
@@ -339,7 +339,7 @@ var CFG = {
   recommend: ["r10_01","r02_08","r08_06","r16_04"],
   slides: [
     { big:"39 000", h:{ru:"Что на обед?",uz:"Tushlikka nima?"}, p:{ru:"Горячее блюдо + салат и хлеб в подарок. Доставка с 12:00 до 13:00.",uz:"Issiq taom + salat va non sovg'a. Yetkazib berish 12:00 dan 13:00 gacha."}, img:"c02.jpg", go:"cat1" },
-    { big:{ru:"0 сум",uz:"0 so'm"}, h:{ru:"бесплатная доставка",uz:"bepul yetkazib berish"}, p:{ru:"Если в заказе больше {free} обедов «Что на обед?». Привезём горячим по Ташкенту.",uz:"Buyurtmada {free} tadan ko'p «Tushlikka nima?» tushligi bo'lsa. Toshkent bo'ylab issiq holda yetkazamiz."}, img:"b_set.jpg?v=5", go:"rc08" },
+    { big:{ru:"0 сум",uz:"0 so'm"}, h:{ru:"бесплатная доставка",uz:"bepul yetkazib berish"}, p:{ru:"Если в заказе больше {free} обедов «Что на обед?». Привезём горячим по Ташкенту.",uz:"Buyurtmada {free} tadan ko'p «Tushlikka nima?» tushligi bo'lsa. Toshkent bo'ylab issiq holda yetkazamiz."}, img:"b_set.jpg?v=6", go:"rc08" },
     { big:"", h:{ru:"Самарканд зиғир оши",uz:"Samarqand zig'ir oshi"}, p:{ru:"Фирменный обеденный плов каждый день с 11:00 до 15:00.",uz:"Har kuni 11:00 dan 15:00 gacha maxsus tushlik oshi."}, img:"b_osh.jpg", go:"rc07" },
     { big:"Smoky", h:{ru:"мясо из смокера",uz:"smokerdagi go'sht"}, p:{ru:"Брискет Smoky Bull и баранина, томлённые на древесном дыму.",uz:"Smoky Bull brisketi va qo'y go'shti yog'och tutunida dimlangan."}, img:"b_bull.jpg", go:"rc07" }
   ]
@@ -401,7 +401,7 @@ try { var sv = JSON.parse(localStorage.getItem("driada_cart") || "{}"); for (var
 function $(id) { return document.getElementById(id); }
 function money(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
 function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-function img(id) { return "" + id + ".jpg?v=5"; }
+function img(id) { return "" + id + ".jpg?v=6"; }
 function save() { try { localStorage.setItem("driada_cart", JSON.stringify(cart)); } catch (e) {} }
 function count() { var n = 0; for (var k in cart) n += cart[k]; return n; }
 function total() { var s = 0; for (var k in cart) s += ITEMS[k].p * cart[k]; return s; }
