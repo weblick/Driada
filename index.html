@@ -7,6 +7,7 @@
 <meta name="description" content="Driada Eco Resto-Bar — меню и заказ с доставкой по Ташкенту. Driada — menyu va Toshkent bo'ylab yetkazib berish.">
 <meta property="og:title" content="Driada Eco Resto-Bar"><meta property="og:image" content="b_set.jpg?v=6">
 <link rel="icon" href="logo.jpg">
+<link rel="preload" as="image" href="c02.webp?v=7">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
@@ -235,6 +236,9 @@ button{font-family:inherit;cursor:pointer;border:0}
   .sheet{align-items:center}.panel{border-radius:24px}
 }
 @media(max-width:759px){.layout aside{margin-top:6px}}
+.card .ph{background-size:cover;background-position:center}
+.card .ph img{opacity:0;transition:opacity .25s ease}
+.card .ph img.ld{opacity:1}
 </style>
 </head>
 <body>
@@ -275,7 +279,7 @@ button{font-family:inherit;cursor:pointer;border:0}
       <div class="sec"><h2 data-i="rec">Рекомендуем</h2></div>
       <div class="rec" id="rec"></div>
       <div class="chef">
-        <img src="b_chef.jpg" alt="">
+        <img src="b_chef.webp?v=7" alt="" decoding="async">
         <div class="tx"><h3 data-ih="chefH"></h3><p data-i="chefP"></p></div>
       </div>
       <a class="rev" href="https://share.google/Ce0QopwpQhwkNQy4t" target="_blank" rel="noopener">
@@ -285,7 +289,7 @@ button{font-family:inherit;cursor:pointer;border:0}
   </div>
 
   <div class="free">
-    <img src="b_set.jpg?v=6" alt="">
+    <img src="b_set.webp?v=7" alt="" loading="lazy" decoding="async">
     <div class="tx"><h3><span data-ih="freeH"></span> <b id="freeFrom"></b></h3></div>
   </div>
 </main>
@@ -326,6 +330,7 @@ button{font-family:inherit;cursor:pointer;border:0}
 <div class="toast" id="toast"></div>
 
 <script src="menu.js"></script>
+<script src="lqip.js"></script>
 <script>
 /* ===== НАСТРОЙКИ ===== */
 var CFG = {
@@ -338,10 +343,10 @@ var CFG = {
   popular: ["c01","c02","c03","c07","s03","s10","r07_01","r02_03","r08_11","r09_03","r02_07","r07_03"],
   recommend: ["r10_01","r02_08","r08_06","r16_04"],
   slides: [
-    { big:"39 000", h:{ru:"Что на обед?",uz:"Tushlikka nima?"}, p:{ru:"Горячее блюдо + салат и хлеб в подарок. Доставка с 12:00 до 13:00.",uz:"Issiq taom + salat va non sovg'a. Yetkazib berish 12:00 dan 13:00 gacha."}, img:"c02.jpg", go:"cat1" },
-    { big:{ru:"0 сум",uz:"0 so'm"}, h:{ru:"бесплатная доставка",uz:"bepul yetkazib berish"}, p:{ru:"Если в заказе больше {free} обедов «Что на обед?». Привезём горячим по Ташкенту.",uz:"Buyurtmada {free} tadan ko'p «Tushlikka nima?» tushligi bo'lsa. Toshkent bo'ylab issiq holda yetkazamiz."}, img:"b_set.jpg?v=6", go:"rc08" },
-    { big:"", h:{ru:"Самарканд зиғир оши",uz:"Samarqand zig'ir oshi"}, p:{ru:"Фирменный обеденный плов каждый день с 11:00 до 15:00.",uz:"Har kuni 11:00 dan 15:00 gacha maxsus tushlik oshi."}, img:"b_osh.jpg", go:"rc07" },
-    { big:"Smoky", h:{ru:"мясо из смокера",uz:"smokerdagi go'sht"}, p:{ru:"Брискет Smoky Bull и баранина, томлённые на древесном дыму.",uz:"Smoky Bull brisketi va qo'y go'shti yog'och tutunida dimlangan."}, img:"b_bull.jpg", go:"rc07" }
+    { big:"39 000", h:{ru:"Что на обед?",uz:"Tushlikka nima?"}, p:{ru:"Горячее блюдо + салат и хлеб в подарок. Доставка с 12:00 до 13:00.",uz:"Issiq taom + salat va non sovg'a. Yetkazib berish 12:00 dan 13:00 gacha."}, img:"c02.webp?v=7", go:"cat1" },
+    { big:{ru:"0 сум",uz:"0 so'm"}, h:{ru:"бесплатная доставка",uz:"bepul yetkazib berish"}, p:{ru:"Если в заказе больше {free} обедов «Что на обед?». Привезём горячим по Ташкенту.",uz:"Buyurtmada {free} tadan ko'p «Tushlikka nima?» tushligi bo'lsa. Toshkent bo'ylab issiq holda yetkazamiz."}, img:"b_set.webp?v=7", go:"rc08" },
+    { big:"", h:{ru:"Самарканд зиғир оши",uz:"Samarqand zig'ir oshi"}, p:{ru:"Фирменный обеденный плов каждый день с 11:00 до 15:00.",uz:"Har kuni 11:00 dan 15:00 gacha maxsus tushlik oshi."}, img:"b_osh.webp?v=7", go:"rc07" },
+    { big:"Smoky", h:{ru:"мясо из смокера",uz:"smokerdagi go'sht"}, p:{ru:"Брискет Smoky Bull и баранина, томлённые на древесном дыму.",uz:"Smoky Bull brisketi va qo'y go'shti yog'och tutunida dimlangan."}, img:"b_bull.webp?v=7", go:"rc07" }
   ]
 };
 
@@ -401,7 +406,8 @@ try { var sv = JSON.parse(localStorage.getItem("driada_cart") || "{}"); for (var
 function $(id) { return document.getElementById(id); }
 function money(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
 function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-function img(id) { return "" + id + ".jpg?v=6"; }
+function img(id) { return "" + id + ".webp?v=7"; }
+function lq(id) { var d = (window.LQIP || {})[id]; return d ? ' style="background-image:url(' + d + ')"' : ""; }
 function save() { try { localStorage.setItem("driada_cart", JSON.stringify(cart)); } catch (e) {} }
 function count() { var n = 0; for (var k in cart) n += cart[k]; return n; }
 function total() { var s = 0; for (var k in cart) s += ITEMS[k].p * cart[k]; return s; }
@@ -443,8 +449,8 @@ function renderGrid() {
   $("gridTitle").innerHTML = title;
   $("allBtn").style.display = curCat || query ? "none" : "";
   var h = "";
-  list.forEach(function (i) {
-    h += '<div class="card"><div class="ph" data-d="' + i.id + '"><img src="' + img(i.id) + '" alt="' + esc(nm(i)) + '" loading="lazy"></div><div class="bd"><h3 data-d="' + i.id + '">' + esc(nm(i)) + '</h3><div class="ds" data-d="' + i.id + '">' + esc(ds(i)) +
+  list.forEach(function (i, n) {
+    h += '<div class="card"><div class="ph" data-d="' + i.id + '"' + lq(i.id) + '><img src="' + img(i.id) + '" alt="' + esc(nm(i)) + '"' + (n < 6 ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async" onload="this.classList.add(\'ld\')" onerror="this.classList.add(\'ld\')"></div><div class="bd"><h3 data-d="' + i.id + '">' + esc(nm(i)) + '</h3><div class="ds" data-d="' + i.id + '">' + esc(ds(i)) +
       '</div><div class="ft">' + price(i) + '<span id="c_' + i.id + '">' + ctl(i.id) + "</span></div></div></div>";
   });
   if (curCat === "cat1" && h) h = setsBox() + h;
@@ -455,7 +461,7 @@ function renderRec() {
   var h = "";
   CFG.recommend.filter(function (k) { return ITEMS[k]; }).forEach(function (k) {
     var i = ITEMS[k];
-    h += '<div class="ri"><img src="' + img(i.id) + '" alt="" loading="lazy" data-d="' + i.id + '"><div class="m"><h4 data-d="' + i.id + '">' + esc(nm(i)) + "</h4><p>" + esc(ds(i)) + '</p><div class="ft">' + price(i) + '<span id="r_' + i.id + '">' + ctl(i.id) + "</span></div></div></div>";
+    h += '<div class="ri"><img src="' + img(i.id) + '" alt="" loading="lazy" decoding="async" data-d="' + i.id + '"><div class="m"><h4 data-d="' + i.id + '">' + esc(nm(i)) + "</h4><p>" + esc(ds(i)) + '</p><div class="ft">' + price(i) + '<span id="r_' + i.id + '">' + ctl(i.id) + "</span></div></div></div>";
   });
   $("rec").innerHTML = h;
 }
