@@ -338,13 +338,12 @@ var CFG = {
   clickUrl: "https://indoor.click.uz/pay?id=099638&t=0",   // оплата через Click (ссылка из QR)
   qrPayme: "qr_payme.png",                         // национальный QR (Payme и приложения банков)
   chat: "@driada_tg",              // группа для заказов
-  freeDeliveryQty: 10,             // доставка бесплатная, если сетов «Что на обед?» в заказе больше этого числа
   phone: "+998 99 010 22 20",
   popular: ["c01","c02","c03","c07","s03","s10","r07_01","r02_03","r08_11","r09_03","r02_07","r07_03"],
   recommend: ["r10_01","r02_08","r08_06","r16_04"],
   slides: [
     { big:"39 000", h:{ru:"Что на обед?",uz:"Tushlikka nima?"}, p:{ru:"Горячее блюдо + салат и хлеб в подарок. Доставка с 12:00 до 13:00.",uz:"Issiq taom + salat va non sovg'a. Yetkazib berish 12:00 dan 13:00 gacha."}, img:"c02.webp?v=7", go:"cat1" },
-    { big:{ru:"0 сум",uz:"0 so'm"}, h:{ru:"бесплатная доставка",uz:"bepul yetkazib berish"}, p:{ru:"Если в заказе больше {free} обедов «Что на обед?». Привезём горячим по Ташкенту.",uz:"Buyurtmada {free} tadan ko'p «Tushlikka nima?» tushligi bo'lsa. Toshkent bo'ylab issiq holda yetkazamiz."}, img:"b_set.webp?v=7", go:"rc08" },
+    { big:{ru:"0 сум",uz:"0 so'm"}, h:{ru:"доставка до 2 км",uz:"2 km gacha yetkazib berish"}, p:{ru:"В радиусе 2 км от ресторана — бесплатно. Дальше отправляем Яндексом, доставку оплачивает клиент.",uz:"Restorandan 2 km radiusda — bepul. Undan uzoqqa Yandex orqali yuboramiz, yetkazib berishni mijoz to'laydi."}, img:"b_set.webp?v=7", go:"rc08" },
     { big:"", h:{ru:"Самарканд зиғир оши",uz:"Samarqand zig'ir oshi"}, p:{ru:"Фирменный обеденный плов каждый день с 11:00 до 15:00.",uz:"Har kuni 11:00 dan 15:00 gacha maxsus tushlik oshi."}, img:"b_osh.webp?v=7", go:"rc07" },
     { big:"Smoky", h:{ru:"мясо из смокера",uz:"smokerdagi go'sht"}, p:{ru:"Брискет Smoky Bull и баранина, томлённые на древесном дыму.",uz:"Smoky Bull brisketi va qo'y go'shti yog'och tutunida dimlangan."}, img:"b_bull.webp?v=7", go:"rc07" }
   ]
@@ -352,37 +351,37 @@ var CFG = {
 
 var T = {
   ru: { cart:"Корзина", search:"Поиск блюд…", all:"Все блюда →", rec:"Рекомендуем", chefH:"Готовим<br><b>с любовью</b>", chefP:"Вкусно. Быстро. Для вас.",
-    freeH:"Бесплатная доставка,<br>если в заказе больше", dishes:"сетов", addr:"Eco Resto-Bar · г. Ташкент, ул. Буюк Ипак Йули, 418 (ориентир: клиника Cardio Life)", hours:"заказы 24/7 · доставка 11:00–23:00",
+    freeH:"Бесплатная доставка<br>в радиусе", dishes:"2 км", addr:"Eco Resto-Bar · г. Ташкент, ул. Буюк Ипак Йули, 418 (ориентир: клиника Cardio Life)", hours:"заказы 24/7 · доставка 11:00–23:00",
     yourOrder:"Ваш заказ", deliv:"🚗 Доставка", pick:"🏃 Самовывоз", name:"Имя", eName:"Введите имя", phone:"Телефон", ePhone:"Номер полностью: +998 XX XXX XX XX",
     addrL:"Адрес доставки", addrP:"Улица, дом, ориентир", eAddr:"Укажите адрес", comm:"Комментарий", commP:"Время доставки, подъезд, пожелания…",
     order:"Оформить заказ →", sending:"Отправляем…", note:"Заказ уйдёт в ресторан, менеджер перезвонит для подтверждения.",
     popular:"🔥 Популярное", popTitle:"Популярные блюда", found:"Поиск", nothing:"Ничего не найдено 🤷", more:"Подробнее →", toCart:"В корзину", added:"✅ Добавлено: ",
-    empty:"Корзина пуста. Добавьте блюда из меню 🍽", sDishes:"Блюда", sDeliv:"Доставка", free:"бесплатно 🎉", tariff:"по тарифу", sPick:"Самовывоз", freeW:"бесплатно", total:"Итого",
-    freeOk:"🎉 Доставка бесплатная!", freeMore:"Добавьте ещё {n} сет(ов) из «Что на обед?», и доставка будет бесплатной", sum:"сум",
+    empty:"Корзина пуста. Добавьте блюда из меню 🍽", sDishes:"Блюда", sDeliv:"Доставка", free:"бесплатно 🎉", tariff:"не входит в сумму", sPick:"Самовывоз", freeW:"бесплатно", total:"Итого",
+    freeOk:"🎉 Доставка бесплатная!", freeMore:"🚗 В радиусе 2 км доставка бесплатная. Дальше вызываем Яндекс — доставку оплачивает клиент курьеру. В сумму заказа доставка не входит.", sum:"сум",
     okH:"Спасибо, заказ принят!", okP:"Номер заказа: {id}. Менеджер скоро перезвонит для подтверждения.", okBtn:"Вернуться в меню",
     err:"Не удалось отправить заказ. Проверьте интернет и попробуйте ещё раз или позвоните: ", wait:"Заказ уже отправлен. Подождите минуту перед новым заказом.",
     closed:"Заказ принят ✅ Доставка работает с 11:00 до 23:00 — привезём после открытия.",
     revH:"Вам понравилось?", revP:"Оставьте отзыв о Driada в Google — это очень помогает нам.", revBtn:"⭐ Оставить отзыв",
     setsInfo:"⏰ «Что на обед?»: заказы принимаем до 11:00. Доставляем с 12:00 до 13:00.",
-    payH:"💳 Оплата заказа", payP:"Оплатите {sum} одним из способов. Сумму введите вручную.",
+    payH:"💳 Оплата заказа", payP:"Оплатите {sum} одним из способов. Сумму введите вручную. Доставка в сумму не входит.",
     clickBtn:"Оплатить через Click", paymeH:"Payme или приложение банка", paymeP:"Отсканируйте QR в Payme, Click, Uzum или приложении банка. С телефона: сохраните QR и выберите «Сканировать из галереи».",
     saveQr:"⬇ Сохранить QR", clickQrH:"QR для Click", payDone:"✅ Я оплатил(а)", paySkip:"Пропустить — оплачу при получении", payBack:"← Изменить данные", toPay:"Перейти к оплате →",
     payNote:"После перевода нажмите «Я оплатил(а)». Менеджер сверит поступление.", okP3:"Номер заказа: {id}. Менеджер перезвонит для подтверждения.",
     okP2:"Номер заказа: {id}. Менеджер проверит предоплату и перезвонит для подтверждения." },
   uz: { cart:"Savat", search:"Taom qidirish…", all:"Barcha taomlar →", rec:"Tavsiya qilamiz", chefH:"Mehr bilan<br><b>tayyorlaymiz</b>", chefP:"Mazali. Tez. Siz uchun.",
-    freeH:"Bepul yetkazib berish,<br>agar buyurtmada", dishes:"tadan ko'p set bo'lsa", addr:"Eco Resto-Bar · Toshkent sh., Buyuk Ipak Yo'li ko'chasi, 418 (mo'ljal: Cardio Life klinikasi)", hours:"buyurtmalar 24/7 · yetkazish 11:00–23:00",
+    freeH:"Bepul yetkazib berish", dishes:"2 km radiusda", addr:"Eco Resto-Bar · Toshkent sh., Buyuk Ipak Yo'li ko'chasi, 418 (mo'ljal: Cardio Life klinikasi)", hours:"buyurtmalar 24/7 · yetkazish 11:00–23:00",
     yourOrder:"Buyurtmangiz", deliv:"🚗 Yetkazib berish", pick:"🏃 Olib ketish", name:"Ism", eName:"Ismingizni kiriting", phone:"Telefon", ePhone:"To'liq raqam: +998 XX XXX XX XX",
     addrL:"Yetkazib berish manzili", addrP:"Ko'cha, uy, mo'ljal", eAddr:"Manzilni kiriting", comm:"Izoh", commP:"Yetkazish vaqti, podyezd, istaklar…",
     order:"Buyurtma berish →", sending:"Yuborilmoqda…", note:"Buyurtma restoranga yuboriladi, menejer tasdiqlash uchun qo'ng'iroq qiladi.",
     popular:"🔥 Ommabop", popTitle:"Ommabop taomlar", found:"Qidiruv", nothing:"Hech narsa topilmadi 🤷", more:"Batafsil →", toCart:"Savatga", added:"✅ Qo'shildi: ",
-    empty:"Savat bo'sh. Menyudan taom qo'shing 🍽", sDishes:"Taomlar", sDeliv:"Yetkazib berish", free:"bepul 🎉", tariff:"tarif bo'yicha", sPick:"Olib ketish", freeW:"bepul", total:"Jami",
-    freeOk:"🎉 Yetkazib berish bepul!", freeMore:"«Tushlikka nima?» bo'limidan yana {n} ta set qo'shing — yetkazib berish bepul bo'ladi", sum:"so'm",
+    empty:"Savat bo'sh. Menyudan taom qo'shing 🍽", sDishes:"Taomlar", sDeliv:"Yetkazib berish", free:"bepul 🎉", tariff:"summaga kirmaydi", sPick:"Olib ketish", freeW:"bepul", total:"Jami",
+    freeOk:"🎉 Yetkazib berish bepul!", freeMore:"🚗 2 km radiusda yetkazib berish bepul. Undan uzoqqa Yandex chaqiramiz — yetkazib berishni mijoz kuryerga to'laydi. Buyurtma summasiga yetkazib berish kirmaydi.", sum:"so'm",
     okH:"Rahmat, buyurtma qabul qilindi!", okP:"Buyurtma raqami: {id}. Menejer tez orada tasdiqlash uchun qo'ng'iroq qiladi.", okBtn:"Menyuga qaytish",
     err:"Buyurtmani yuborib bo'lmadi. Internetni tekshirib, qayta urinib ko'ring yoki qo'ng'iroq qiling: ", wait:"Buyurtma yuborildi. Yangi buyurtmadan oldin bir daqiqa kuting.",
     closed:"Buyurtma qabul qilindi ✅ Yetkazib berish 11:00 dan 23:00 gacha — ochilgandan keyin olib boramiz.",
     revH:"Sizga yoqdimi?", revP:"Google'da Driada haqida fikr qoldiring — bu bizga juda yordam beradi.", revBtn:"⭐ Fikr qoldirish",
     setsInfo:"⏰ «Tushlikka nima?»: buyurtmalar soat 11:00 gacha qabul qilinadi. Yetkazib berish 12:00 dan 13:00 gacha.",
-    payH:"💳 Buyurtmani to'lash", payP:"{sum} miqdorini quyidagi usullardan biri orqali to'lang. Summani qo'lda kiriting.",
+    payH:"💳 Buyurtmani to'lash", payP:"{sum} miqdorini quyidagi usullardan biri orqali to'lang. Summani qo'lda kiriting. Yetkazib berish summaga kirmaydi.",
     clickBtn:"Click orqali to'lash", paymeH:"Payme yoki bank ilovasi", paymeP:"QR kodni Payme, Click, Uzum yoki bank ilovasida skanerlang. Telefondan: QR ni saqlang va «Galereyadan skanerlash» ni tanlang.",
     saveQr:"⬇ QR ni saqlash", clickQrH:"Click uchun QR", payDone:"✅ To'ladim", paySkip:"O'tkazib yuborish — qabul qilganda to'layman", payBack:"← Ma'lumotlarni o'zgartirish", toPay:"To'lovga o'tish →",
     payNote:"O'tkazmadan so'ng «To'ladim» tugmasini bosing. Menejer tushumni tekshiradi.", okP3:"Buyurtma raqami: {id}. Menejer tasdiqlash uchun qo'ng'iroq qiladi.",
@@ -419,7 +418,7 @@ function word(n) {
 
 function hasSets() { for (var k in cart) if (ITEMS[k].cat === "cat1") return true; return false; }
 function setCount() { var n = 0; for (var k in cart) if (ITEMS[k].set) n += cart[k]; return n; }
-function freeDel() { return setCount() > CFG.freeDeliveryQty; }
+function freeDel() { return false; }
 function setsBox() { return '<div class="hint big" style="grid-column:1/-1;margin:0 0 4px">' + L("setsInfo") + "</div>"; }
 
 function ctl(id) {
@@ -470,7 +469,7 @@ var slideCur = 0, slideTimer = null;
 function renderSlides() {
   var h = "", d = "";
   CFG.slides.forEach(function (s, n) {
-    h += '<div class="slide"><img src="' + s.img + '" alt=""><div class="tx">' + (tr(s.big) ? '<div class="big">' + esc(tr(s.big)) + '</div>' : "") + '<div class="h">' + esc(tr(s.h)) + "</div><p>" + esc(tr(s.p).replace("{free}", CFG.freeDeliveryQty)) + '</p></div></div>';
+    h += '<div class="slide"><img src="' + s.img + '" alt=""><div class="tx">' + (tr(s.big) ? '<div class="big">' + esc(tr(s.big)) + '</div>' : "") + '<div class="h">' + esc(tr(s.h)) + "</div><p>" + esc(tr(s.p)) + '</p></div></div>';
     d += "<i" + (n === slideCur ? ' class="on"' : "") + "></i>";
   });
   $("slides").innerHTML = h; $("dots").innerHTML = d;
@@ -521,8 +520,7 @@ function renderCart() {
   var hint = $("freeHint");
   if (!keys.length || type !== "d") { hint.style.display = "none"; }
   else if (free) { hint.style.display = ""; hint.className = "hint ok"; hint.textContent = L("freeOk"); }
-  else if (!setCount()) { hint.style.display = "none"; }
-  else { hint.style.display = ""; hint.className = "hint"; hint.textContent = L("freeMore").replace("{n}", CFG.freeDeliveryQty + 1 - setCount()); }
+  else { hint.style.display = ""; hint.className = "hint"; hint.textContent = L("freeMore"); }
   
   $("checkout").style.display = keys.length ? "" : "none";
   $("f_a").style.display = type === "d" ? "" : "none";
@@ -550,7 +548,7 @@ function buildText(id, n, ph, a, c) {
   Object.keys(cart).forEach(function (k) { var i = ITEMS[k]; lines.push("• " + i.n + " × " + cart[k] + " = " + money(i.p * cart[k]) + " сум"); });
   lines.push("", "Блюд: " + count() + " шт.");
   lines.push("💰 Итого: " + money(total()) + " сум");
-  if (type === "d") lines.push("Доставка: " + (freeDel() ? "бесплатно (больше " + CFG.freeDeliveryQty + " сетов)" : "по тарифу"));
+  if (type === "d") lines.push("🚗 Доставка: до 2 км — за счёт ресторана, дальше Яндекс за счёт клиента (в сумму не входит)");
   lines.push("", PAID ? "💳 Статус: Оплачено✅\n(клиент нажал «Я оплатил» — сверьте поступление " + money(total()) + " сум в Click / Payme)" : "💳 Статус: Без предоплаты❌\n(оплата при получении)");
   if (hasSets()) lines.push("⏰ В заказе «Что на обед?»: доставка с 12:00 до 13:00");
   if (c) lines.push("", "💬 " + c);
@@ -628,7 +626,7 @@ function applyLang() {
   [].forEach.call(document.querySelectorAll("[data-ih]"), function (el) { el.innerHTML = L(el.getAttribute("data-ih")); });
   [].forEach.call(document.querySelectorAll("#lang button"), function (b) { b.classList.toggle("on", b.getAttribute("data-l") === lang); });
   $("q").placeholder = L("search"); $("a").placeholder = L("addrP"); $("c").placeholder = L("commP");
-  $("freeFrom").textContent = CFG.freeDeliveryQty + " " + L("dishes");
+  $("freeFrom").textContent = L("dishes");
   renderSlides(); goSlide(slideCur); renderNav(); renderGrid(); renderRec(); refreshCtl();
   if ($("sheet").classList.contains("on") && $("cartBox").style.display !== "none") renderCart();
   if ($("payStep").style.display !== "none") renderPay();
